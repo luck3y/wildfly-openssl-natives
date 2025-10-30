@@ -35,7 +35,7 @@ jobs:
           OPENSSL_VERSION=$(ls -t1 /opt/homebrew/Cellar/openssl@3* | head -1)
           OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3/${OPENSSL_VERSION}/bin
           echo OpenSSL Located at: ${OPENSSL_PATH}
-          export PATH="${OPENSSL_PATH}:${PATH}
+          export PATH="${OPENSSL_PATH}:${PATH}"
           openssl version
       - name: Maven Version Info
         run: mvn -version
