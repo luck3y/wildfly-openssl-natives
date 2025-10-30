@@ -56,8 +56,10 @@ jobs:
           openssl version 
           which openssl
           export LDDADD=/usr/local/opt/openssl/lib
-          echo ${LDFLAGS}
+          echo ${LDDADD}
+          ls -l ${LDDADD}
           cd macosx-x86_64 && make
+          ls -l
       - if: matrix.os == 'windows-latest'
         name: Build WildFly OpenSSL natives on Windows with Microsoft Visual Studio native tools command prompt and Maven on Windows
         env:
