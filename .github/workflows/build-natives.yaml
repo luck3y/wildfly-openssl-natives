@@ -34,6 +34,7 @@ jobs:
         run: |
           export PATH="/usr/local/opt/openssl@3/bin:$PATH"
           openssl version
+          ls -l /opt/homebrew/bin/openssl*
       - name: Maven Version Info
         run: mvn -version
       - if: matrix.os == 'macos-latest'
