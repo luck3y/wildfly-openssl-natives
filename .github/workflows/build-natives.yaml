@@ -43,7 +43,7 @@ jobs:
           export PATH="/usr/local/opt/openssl@3/bin:$PATH"
           echo "OpenSSL version used is:"
           openssl version
-          find /usr/local/Cellar/ -name "libssl.*"
+          find / -name "libssl.*"
           which openssl
           cd macosx-x86_64 
           make || true
