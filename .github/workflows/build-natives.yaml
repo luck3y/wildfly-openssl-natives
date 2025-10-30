@@ -55,9 +55,11 @@ jobs:
           echo "OpenSSL version used is:"
           openssl version 
           which openssl
-          export LDDADD=/usr/local/opt/openssl/lib
+          export LDDADD=/opt/homebrew/lib
           echo ${LDDADD}
-          ls -l ${LDDADD}
+          ls -l ${LDDADD} || true
+          echo LIB:
+          ls -l /lib
           cd macosx-x86_64 && make
           ls -l
       - if: matrix.os == 'windows-latest'
