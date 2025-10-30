@@ -58,8 +58,7 @@ jobs:
           echo "OpenSSL version used is:"
           openssl version 
           which openssl
-          ls -l /usr/local/opt/
-          export LDFLAGS=${LDFLAGS}:/opt/homebrew/lib/
+          export LDFLAGS=${LDFLAGS}:/usr/local/opt/openssl/lib
           echo ${LDFLAGS}
           mvn -B install --file pom.xml
           echo "WILDFLY_OPENSSL_NATIVES_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
