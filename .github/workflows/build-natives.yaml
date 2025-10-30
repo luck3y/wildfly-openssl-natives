@@ -41,7 +41,7 @@ jobs:
           which openssl
           cd macosx-x86_64 
           make || true
-          ls -l
+          ls -lR target/classes
       - if: matrix.os == 'macos-latest'
         name: Run tests with the built MacOS native
         working-directory: wildfly-openssl
