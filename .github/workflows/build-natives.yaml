@@ -33,7 +33,7 @@ jobs:
         name: OpenSSL Library Version Info on MacOS
         run: |
           OPENSSL_VERSION=$(ls -t1 /opt/homebrew/Cellar/openssl@3* | head -1)
-          OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3${OPENSSL_VERSION}/bin
+          OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3/${OPENSSL_VERSION}/bin
           echo OpenSSL Located at: ${OPENSSL_PATH}
           export PATH="${OPENSSL}:$PATH"
           openssl version
@@ -44,7 +44,7 @@ jobs:
         id: build-wildfly-openssl-natives
         run: |
           OPENSSL_VERSION=$(ls -t1 /opt/homebrew/Cellar/openssl@3* | head -1)
-          OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3${OPENSSL_VERSION}/bin
+          OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3/${OPENSSL_VERSION}/bin
           echo OpenSSL Located at: ${OPENSSL_PATH}
           export PATH="${OPENSSL}:$PATH"
           echo "OpenSSL version used is:"
@@ -65,7 +65,7 @@ jobs:
         run: |
           echo WFN1: ${WILDFLY_OPENSSL_NATIVES_VERSION}
           OPENSSL_VERSION=$(ls -t1 /opt/homebrew/Cellar/openssl@3* | head -1)
-          OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3${OPENSSL_VERSION}/bin
+          OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3/${OPENSSL_VERSION}/bin
           echo OpenSSL Located at: ${OPENSSL_PATH}
           export PATH="${OPENSSL}:$PATH"
           openssl version
