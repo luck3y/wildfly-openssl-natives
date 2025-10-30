@@ -35,7 +35,7 @@ jobs:
           OPENSSL_VERSION=$(ls -t1 /opt/homebrew/Cellar/openssl@3* | head -1)
           OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3/${OPENSSL_VERSION}/bin
           echo OpenSSL Located at: ${OPENSSL_PATH}
-          export PATH="${OPENSSL}:$PATH"
+          export PATH="${OPENSSL_PATH}:${PATH}
           openssl version
       - name: Maven Version Info
         run: mvn -version
@@ -46,7 +46,7 @@ jobs:
           OPENSSL_VERSION=$(ls -t1 /opt/homebrew/Cellar/openssl@3* | head -1)
           OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3/${OPENSSL_VERSION}/bin
           echo OpenSSL Located at: ${OPENSSL_PATH}
-          export PATH="${OPENSSL}:$PATH"
+          export PATH="${OPENSSL_PATH}:${PATH}"
           echo "OpenSSL version used is:"
           openssl version
           which openssl
@@ -67,7 +67,7 @@ jobs:
           OPENSSL_VERSION=$(ls -t1 /opt/homebrew/Cellar/openssl@3* | head -1)
           OPENSSL_PATH=/opt/homebrew/Cellar/openssl@3/${OPENSSL_VERSION}/bin
           echo OpenSSL Located at: ${OPENSSL_PATH}
-          export PATH="${OPENSSL}:$PATH"
+          export PATH="${OPENSSL_PATH}:${PATH}"
           openssl version
           export WILDFLY_OPENSSL_NATIVES_VERSION=${{ steps.build-wildfly-openssl-natives.outputs.WILDFLY_OPENSSL_NATIVES_VERSION }}
           echo Running tests with WildFly OpenSSL Natives $WILDFLY_OPENSSL_NATIVES_VERSION
