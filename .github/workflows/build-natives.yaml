@@ -39,10 +39,11 @@ jobs:
           echo "OpenSSL version used is:"
           openssl version 
           which openssl
-          echo "WILDFLY_OPENSSL_NATIVES_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
           cd macosx-x86_64 
           make || true
           ls -lR target/classes
+          cd ..
+          echo "WILDFLY_OPENSSL_NATIVES_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
       - if: matrix.os == 'macos-latest'
         name: Run tests with the built MacOS native
         working-directory: wildfly-openssl
