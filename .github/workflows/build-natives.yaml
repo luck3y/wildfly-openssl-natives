@@ -15,7 +15,7 @@ jobs:
         working-directory: main
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest]
+        os: [windows-latest, ubuntu-latest, macos-latest]
         java: ['11', '17', '21']
         include:
           - os: windows-latest
@@ -57,6 +57,7 @@ jobs:
           export PATH="/usr/local/opt/openssl@3/bin:$PATH"
           echo "OpenSSL version used is:"
           openssl version 
+          export LDFLAGS=${LDFLAGS}/opt/homebrew/lib/
           mvn -B install --file pom.xml
           echo "WILDFLY_OPENSSL_NATIVES_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
       - if: matrix.os == 'windows-latest'
