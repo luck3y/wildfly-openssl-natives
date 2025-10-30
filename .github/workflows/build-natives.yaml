@@ -52,10 +52,12 @@ jobs:
           mvn --version
           echo "WILDFLY_OPENSSL_NATIVES_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
           mvn -B install --file pom.xml
+          echo WFN: ${WILDFLY_OPENSSL_NATIVES_VERSION}
       - if: matrix.os == 'macos-latest'
         name: Run tests with the built MacOS native
         working-directory: wildfly-openssl
         run: |
+          echo WFN1: ${WILDFLY_OPENSSL_NATIVES_VERSION}
           export PATH="/usr/local/opt/openssl@3/bin:$PATH"
           openssl version
           export WILDFLY_OPENSSL_NATIVES_VERSION=${{ steps.build-wildfly-openssl-natives.outputs.WILDFLY_OPENSSL_NATIVES_VERSION }}
