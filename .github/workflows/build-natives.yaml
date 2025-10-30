@@ -42,7 +42,8 @@ jobs:
         run: |
           export PATH="/usr/local/opt/openssl@3/bin:$PATH"
           echo "OpenSSL version used is:"
-          openssl version 
+          openssl version
+          ls -l /usr/local/opt/openssl*
           which openssl
           cd macosx-x86_64 
           make || true
