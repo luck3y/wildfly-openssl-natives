@@ -40,10 +40,9 @@ jobs:
         name: Build WildFly OpenSSL natives on MacOS
         id: build-wildfly-openssl-natives
         run: |
-          export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+          export PATH="/opt/homebrew/bin:$PATH"
           echo "OpenSSL version used is:"
           openssl version
-          find / -name "libssl.*"
           which openssl
           cd macosx-x86_64 
           make || true
@@ -59,7 +58,7 @@ jobs:
         working-directory: wildfly-openssl
         run: |
           echo WFN1: ${WILDFLY_OPENSSL_NATIVES_VERSION}
-          export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+          export PATH="/opt/homebrew/bin:$PATH"
           openssl version
           export WILDFLY_OPENSSL_NATIVES_VERSION=${{ steps.build-wildfly-openssl-natives.outputs.WILDFLY_OPENSSL_NATIVES_VERSION }}
           echo Running tests with WildFly OpenSSL Natives $WILDFLY_OPENSSL_NATIVES_VERSION
