@@ -48,6 +48,8 @@ jobs:
           make || true
           ls -lR target/classes
           cd ..
+          pwd
+          mvn --version
           echo "WILDFLY_OPENSSL_NATIVES_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
       - if: matrix.os == 'macos-latest'
         name: Run tests with the built MacOS native
